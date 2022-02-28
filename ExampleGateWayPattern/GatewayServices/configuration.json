@@ -1,0 +1,59 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Customer",
+      "DownstreamScheme": "https",
+      "DownstreamHost": "localhost",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "9001"
+        },
+        {
+          "Host": "localhost",
+          "Port": "5097"
+        }
+      ],
+      "UpstreamPathTemplate": "/abc/Customer",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Product",
+      "DownstreamScheme": "https",
+      "DownstreamHost": "localhost",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "9002"
+        },
+        {
+          "Host": "localhost",
+          "Port": "5079"
+        }
+      ],
+      "UpstreamPathTemplate": "/get-all/Products",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ]
+}
+
+//{
+//  "Routes": [
+//    {
+//      "DownstreamPathTemplate": "/api/Customer",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": "9001"
+//        },
+//        {
+//          "Host": "localhost",
+//          "Port": "5097"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Customer",
+//      "UpstreamHttpMethod": [ "GET" ]
+//    }
+//  ]
+//}
