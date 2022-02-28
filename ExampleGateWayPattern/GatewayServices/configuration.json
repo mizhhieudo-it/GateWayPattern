@@ -1,4 +1,4 @@
-{
+﻿{
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/Customer",
@@ -15,7 +15,18 @@
         }
       ],
       "UpstreamPathTemplate": "/abc/Customer",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      // giới hạn tốc độ 
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 5, // trong 5 giây
+        "Limit": 2, // làm đc bao nhiêu lần
+        "DisableRateLimitHeaders": false,
+        "QuotaExceededMessage": "Trong 5 giay ban chi co the su dung 2 request. vui long cho 5s de tiep tuc !! ",
+        "HttpStatusCode": 999
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Product",
@@ -34,7 +45,15 @@
       "UpstreamPathTemplate": "/get-all/Products",
       "UpstreamHttpMethod": [ "Get" ]
     }
-  ]
+  ],
+  // custom giới hạn tốc độ
+  "GlobalConfiguration": {
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false,
+      "QuotaExceededMessage": "Trong 5 giay chi co the call 2 resquest! vui long cho 5 giay de tiep tuc",
+      "HttpStatusCode": 999
+    }
+  }
 }
 
 //{
