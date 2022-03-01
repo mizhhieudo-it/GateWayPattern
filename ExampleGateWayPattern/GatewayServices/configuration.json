@@ -14,7 +14,7 @@
           "Port": "5097"
         }
       ],
-      "UpstreamPathTemplate": "/abc/Customer",
+      "UpstreamPathTemplate": "/aaaa/Customer",
       "UpstreamHttpMethod": [ "Get" ],
       // giới hạn tốc độ 
       "RateLimitOptions": {
@@ -42,7 +42,28 @@
           "Port": "5079"
         }
       ],
-      "UpstreamPathTemplate": "/get-all/Products",
+      "UpstreamPathTemplate": "/aaaa/Products",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Values",
+      "DownstreamScheme": "https",
+      "DownstreamHost": "localhost",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "9001"
+        },
+        {
+          "Host": "localhost",
+          "Port": "9002"
+        }
+      ],
+      "UpstreamPathTemplate": "/GateWay/LoadBalancer",
+      // add option LoadBalancer
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
       "UpstreamHttpMethod": [ "Get" ]
     }
   ],

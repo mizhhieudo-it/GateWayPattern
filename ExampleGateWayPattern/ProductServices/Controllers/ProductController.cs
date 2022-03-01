@@ -19,5 +19,10 @@ namespace ProductServices.Controllers
                 "IPHONE X",
             };
         }
+        [HttpGet("get-serviceB")]
+        public string ServiceB()
+        {
+            return $"I From Service B";
+        }
     }
 }
